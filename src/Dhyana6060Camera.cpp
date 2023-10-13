@@ -724,26 +724,12 @@ void Camera::setTrigMode(TrigMode mode)
 			node.nVal = 2;  //0-FreeRunning / 1-Standard / 2-Software / 3-GPS
 			TUCAM_GenICam_SetElementValue(m_opCam.hIdxTUCam, &node);
 
-			node.pName = "TrigExpType";
-			node.nVal = TUCTE_EXPTM;
-			err = TUCAM_GenICam_SetElementValue(m_opCam.hIdxTUCam, &node);
-			if(TUCAMRET_SUCCESS != err)
-			{
-				THROW_HW_ERROR(Error) << "Unable to set TrigInExpType target from the camera ! Error: " << err << " ";
-			}
 			DEB_TRACE() << "TUCAM_Cap_SetTrigger : TUCCM_TRIGGER_SOFTWARE (EXPOSURE SOFTWARE)";
 			break;
 		case IntTrigMult:
 			node.nVal = 2;  //0-FreeRunning / 1-Standard / 2-Software / 3-GPS
 			TUCAM_GenICam_SetElementValue(m_opCam.hIdxTUCam, &node);
 
-			node.pName = "TrigExpType";
-			node.nVal = TUCTE_EXPTM;
-			err = TUCAM_GenICam_SetElementValue(m_opCam.hIdxTUCam, &node);
-			if(TUCAMRET_SUCCESS != err)
-			{
-				THROW_HW_ERROR(Error) << "Unable to set TrigInExpType target from the camera ! Error: " << err << " ";
-			}
 			DEB_TRACE() << "TUCAM_Cap_SetTrigger : TUCCM_TRIGGER_SOFTWARE (EXPOSURE SOFTWARE) (MULTI)";
 			break;			
 		case ExtTrigMult :
